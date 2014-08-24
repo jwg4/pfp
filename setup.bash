@@ -1,3 +1,3 @@
 #!/bin/bash
 
-apt-get install quantlib-python nginx python-flub
+apt-get install quantlib-python nginx python-flup
