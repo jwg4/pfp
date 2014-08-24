@@ -1,6 +1,4 @@
 * Run a python hello world in ngninx
-** Set up a 'site' - peppa domain or ip
-** Check that we can see nginx placeholder page
 ** Check that we can put a http page in place
 ** Check that we can run something with python
 
