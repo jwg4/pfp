@@ -1,0 +1,6 @@
+[submodule "etc"]
+	path = etc
+	url = /etc
+[submodule "jwg-etc"]
+	path = jwg-etc
+	url = https://github.com/jwg4/jwg-etc.git
