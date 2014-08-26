@@ -14,3 +14,4 @@ cd pyprice
 ./manage.py startproject pyprice
 ./manage.py startapp yc
 ./manage.py syncdb
+./manage.py collectstatic

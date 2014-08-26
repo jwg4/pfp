@@ -1,4 +1,4 @@
-from polls.models import Poll
+from yc.models import YieldCurve, CashRate, SwapRate
 from django.contrib import admin
 
 admin.site.register(YieldCurve)
