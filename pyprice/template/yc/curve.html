@@ -7,10 +7,13 @@
 <body>
 <h1>{{curve.name}}</h1>
 
-<ul>
+<table>
 {% for pillar in pillars %}
-  <li>{{ pillar.rate }}</li>
+  <tr>
+    <td>{{ pillar.maturity }}</td>
+    <td>{{ pillar.rate }}</td>
+  </tr>
 {% endfor %}
-</ul>
+</table>
 
 </body>

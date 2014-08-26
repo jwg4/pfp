@@ -15,14 +15,29 @@ class Pillar(models.Model):
     yield_curve = models.ForeignKey(YieldCurve)
     rate = models.FloatField()
 
+    """ This is a hack for doing polymorphism """
+    @property
+    def maturity(self):
+        if hasattr(self, 'cashrate'):
+            return self.cashrate.maturity()
+        if hasattr(self, 'swaprate'):
+            return self.swaprate.maturity()
+
 class CashRate(Pillar):
     months = models.IntegerField()
+    
+    def maturity(self):
+        return "%dM" % self.months
 
     def __unicode__(self):
-        return "%s %dM CASH" % (self.yield_curve.currency, self.months)
+        return "%s %s CASH" % (self.yield_curve.currency, self.maturity)
     
 class SwapRate(Pillar):
     years = models.IntegerField()
+    
+    def maturity(self):
+        return "%dY" % self.years
 
     def __unicode__(self):
-        return "%s %dY SWAP" % (self.yield_curve.currency, self.years)
+        return "%s %s SWAP" % (self.yield_curve.currency, self.maturity)
+
