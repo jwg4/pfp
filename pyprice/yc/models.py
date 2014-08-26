@@ -9,7 +9,7 @@ class YieldCurve(models.Model):
     currency = models.CharField(max_length=3)
 
     def __unicode__(self):
-        return "%s %s" % (name, currency)
+        return "%s %s" % (self.name, self.currency)
 
 class Pillar(models.Model):
     yield_curve = models.ForeignKey(YieldCurve)
@@ -19,10 +19,10 @@ class CashRate(Pillar):
     months = models.IntegerField()
 
     def __unicode__(self):
-        return "%s %dM CASH" % (yield_curve.currency, months)
+        return "%s %dM CASH" % (self.yield_curve.currency, self.months)
     
 class SwapRate(Pillar):
     years = models.IntegerField()
 
     def __unicode__(self):
-        return "%s %dY SWAP" % (yield_curve.currency, years)
+        return "%s %dY SWAP" % (self.yield_curve.currency, self.years)
