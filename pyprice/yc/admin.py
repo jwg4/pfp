@@ -1,6 +1,18 @@
 from yc.models import YieldCurve, CashRate, SwapRate
 from django.contrib import admin
 
-admin.site.register(YieldCurve)
-admin.site.register(CashRate)
-admin.site.register(SwapRate)
+class CashInline(admin.TabularInline):
+    model = CashRate
+    extra = 1
+
+class SwapInline(admin.TabularInline):
+    model = SwapRate
+    extra = 1
+
+class YCAdmin(admin.ModelAdmin):
+    fields = ['name', 'currency', 'pricing_date']
+    inlines = [CashInline, SwapInline]
+    
+admin.site.register(YieldCurve, YCAdmin)
+#admin.site.register(CashRate)
+#admin.site.register(SwapRate)
