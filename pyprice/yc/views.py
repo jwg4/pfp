@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response
+from yc.models import YieldCurve
 
 def index(request):
     curves = YieldCurve.objects.all().order_by('-pricing_date')
