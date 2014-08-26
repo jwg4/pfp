@@ -58,3 +58,5 @@ db
 *.pdf
 *.synctex.gz
 *.out
+*.py#
+.#*
