@@ -1,20 +1,27 @@
 \documentclass{article}
 
-\usepackage{urls}
+\usepackage{url}
 
 \begin{document}
 \section{Yahoo Finance app}
 \section{Quantlib app}
-\emph{
+\begin{itshape}
 QuantLib is an open-source C++ library of financial pricing functions. It has an interface to various other applications (eg Excel) and languages (eg Python).
-We use QuantLib a lot and I would like to see if you can get your head around it a bit.
-I have previously asked candidates to build it in MS Visual Studio 2008 (there are guides for this on the web), but actually the core C++ library and the SWIG interface to Python can be apt-get installed in an Ubuntu distribution.
-Here is the exercise: set up a web app that uses Python/QuantLib to do some kind of asset pricing.
-Most of our work is focussed on ‘fixed income’ products at the moment, which generally means ‘swaps’ and ‘swaptions’, so I would suggest that you try to price a user-specified swap with the discount factors coming from a simple user-specified yield curve.
-If you were doing this within Excel (the QuantLib developers have also made it possible to expose a lot of the funtions to Excel) then you would use functions likeqlSchedule, qlSwap,qlInstrumentNPV to create the Swap object and then price it.
-To price swaps you need to first build a yield curve; there is example code on the web, and also in the packages I believe.
-I understand that you might not know anything at all about interest rates, derivatives, swaps, but do not worry! I am really just keen to see if you can wrap some example QuantLib code in a good-looking web application.}
 
+We use QuantLib a lot and I would like to see if you can get your head around it a bit.
+
+I have previously asked candidates to build it in MS Visual Studio 2008 (there are guides for this on the web), but actually the core C++ library and the SWIG interface to Python can be apt-get installed in an Ubuntu distribution.
+
+Here is the exercise: set up a web app that uses Python/QuantLib to do some kind of asset pricing.
+
+Most of our work is focussed on ‘fixed income’ products at the moment, which generally means ‘swaps’ and ‘swaptions’, so I would suggest that you try to price a user-specified swap with the discount factors coming from a simple user-specified yield curve.
+
+If you were doing this within Excel (the QuantLib developers have also made it possible to expose a lot of the funtions to Excel) then you would use functions likeqlSchedule, qlSwap,qlInstrumentNPV to create the Swap object and then price it.
+
+To price swaps you need to first build a yield curve; there is example code on the web, and also in the packages I believe.
+
+I understand that you might not know anything at all about interest rates, derivatives, swaps, but do not worry! I am really just keen to see if you can wrap some example QuantLib code in a good-looking web application.
+\end{itshape}
 
 \begin{enumerate}
 \item
