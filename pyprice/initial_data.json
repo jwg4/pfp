@@ -42,7 +42,7 @@
         },    
     {
         "model": "yc.Pillar",
-        "pk": 9,
+        "pk": 5,
         "fields": {
             "yield_curve": 1,
             "rate": 2.1
@@ -50,7 +50,7 @@
         },    
     {
         "model": "yc.Pillar",
-        "pk": 10,
+        "pk": 6,
         "fields": {
             "yield_curve": 1,
             "rate": 2.34
@@ -58,7 +58,7 @@
         },    
     {
         "model": "yc.Pillar",
-        "pk": 11,
+        "pk": 7,
         "fields": {
             "yield_curve": 1,
             "rate": 2.52
@@ -66,7 +66,7 @@
         },    
     {
         "model": "yc.Pillar",
-        "pk": 12,
+        "pk": 8,
         "fields": {
             "yield_curve": 1,
             "rate": 2.7
@@ -102,28 +102,28 @@
         },    
     {
         "model": "yc.SwapRate",
-        "pk": 9,
+        "pk": 5,
         "fields": {
             "years": 1
             }
         },    
     {
         "model": "yc.SwapRate",
-        "pk": 10,
+        "pk": 6,
         "fields": {
             "years": 2
             }
         },    
     {
         "model": "yc.SwapRate",
-        "pk": 11,
+        "pk": 7,
         "fields": {
             "years": 3
             }
         },    
     {
         "model": "yc.SwapRate",
-        "pk": 12,
+        "pk": 8,
         "fields": {
             "years": 4
             }
@@ -139,7 +139,7 @@
         },
     {
         "model": "yc.Pillar",
-        "pk": 5,
+        "pk": 9,
         "fields": {
             "yield_curve": 2,
             "rate": 0.15
@@ -147,7 +147,7 @@
         },    
     {
         "model": "yc.Pillar",
-        "pk": 6,
+        "pk": 10,
         "fields": {
             "yield_curve": 2,
             "rate": 0.39
@@ -155,7 +155,7 @@
         },    
     {
         "model": "yc.Pillar",
-        "pk": 7,
+        "pk": 11,
         "fields": {
             "yield_curve": 2,
             "rate": 0.83
@@ -163,7 +163,7 @@
         },    
     {
         "model": "yc.Pillar",
-        "pk": 8,
+        "pk": 12,
         "fields": {
             "yield_curve": 2,
             "rate": 1.20
@@ -203,28 +203,28 @@
         },
     {
         "model": "yc.CashRate",
-        "pk": 5,
+        "pk": 9,
         "fields": {
             "months": 1
             }
         },    
     {
         "model": "yc.CashRate",
-        "pk": 6,
+        "pk": 10,
         "fields": {
             "months": 3
             }
         },    
     {
         "model": "yc.CashRate",
-        "pk": 7,
+        "pk": 11,
         "fields": {
             "months": 6
             }
         },    
     {
         "model": "yc.CashRate",
-        "pk": 8,
+        "pk": 12,
         "fields": {
             "months": 9
             }
