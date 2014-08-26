@@ -13,4 +13,10 @@ def index(request):
 def curve(request, curve_id):
     curve = get_object_or_404(YieldCurve, pk=curve_id)
     pillars = curve.pillar_set.all()
+
+    termstructure = PiecewiseFlatForward(settlement,
+                                         [x.QLpillar() for x in pillars],
+                                         Actual360()
+                                         )
+
     return render_to_response('yc/curve.html', {'curve': curve, 'pillars': pillars})
