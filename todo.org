@@ -1,11 +1,6 @@
 * Run a python hello world in nginx
-** Check that django app gets run correctly with runserver
-*** django admin
-** install uWSGI
-*** Check that uWSGI can call the django app
 ** configure nginx
 *** Redirect urls for static files to /home/pi/htdocs
-*** Redirect non-static to uWSGI
 *** Can we see a sample django app
-*** Can we see out django stuff
+*** Can we see our django stuff
 * Price something from a python script

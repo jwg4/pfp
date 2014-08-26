@@ -2,7 +2,7 @@
 
 #useradd pi?
 
-apt-get install quantlib-python nginx python-django
+apt-get install quantlib-python nginx python-django uwsgi uwsgi-plugin-python
 
 service nginx start
 
@@ -11,7 +11,5 @@ django-admin startproject pyprice
 cd pyprice 
 # Do the changes to settings first
 ./manage.py syncdb
-# This is only for testing - remove it when we have details of
-# how to setup the prod server
-./manage.py runserver 192.168.0.6:8000
 
+service uwsgi start
