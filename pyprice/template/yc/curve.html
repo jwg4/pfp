@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>
+{{curve.name}}
+</title>
+
+<body>
+<h1>{{curve.name}}</h1>
+
+<ul>
+{% for pillar in pillars %}
+  <li>{{ pillar.rate }}</li>
+{% endfor %}
+</ul>
+
+</body>

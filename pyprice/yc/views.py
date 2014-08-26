@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from yc.models import YieldCurve
 
 def index(request):
@@ -9,3 +9,8 @@ def index(request):
     #        'curves': curves,
     #        })
     #return HttpResponse(t.render(c))
+
+def curve(request, curve_id):
+    curve = get_object_or_404(YieldCurve, pk=curve_id)
+    pillars = curve.pillar_set.all()
+    return render_to_response('yc/curve.html', {'curve': curve, 'pillars': pillars})
