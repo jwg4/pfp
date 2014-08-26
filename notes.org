@@ -1,0 +1,4 @@
+* django/nginx/uwsgi setup
+** http://uwsgi-docs.readthedocs.org/en/latest/tutorials/Django_and_nginx.html
+** https://docs.djangoproject.com/en/1.4/ref/settings/
+** debian thing: http://cd34.com/blog/framework/uwsgi-version-1-2-3-debian-and-pyramid/
