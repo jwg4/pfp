@@ -18,5 +18,3 @@ class YCAdmin(admin.ModelAdmin):
     #date_hierarchy = ['pricing_date']
 
 admin.site.register(YieldCurve, YCAdmin)
-#admin.site.register(CashRate)
-#admin.site.register(SwapRate)
