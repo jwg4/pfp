@@ -1,16 +1,20 @@
-* Create a PoC django app
-** Create some pages to use the yc objects
-*** add the url pattern to urls.py
-** Bootstrap a yield curve
-*** Can we add a QuantLib object to a django model?
-*** Plot the yield curve graph 
-** Create yc objects
-*** Update creating in admin objects
-*** Create a page to load a bunch of defaults
-*** Create a page to load from a file?
-** Change templates to make admin nicer
+* Bootstrap and display the yield curve
+** Pass lists of forwards and zeros to the template
+** Make a nice table
+** Plot the yield curve graph 
+** Plot yesterday's graph
 
-* Price something from a python script
-** Load yield curve from db?
+* Do some pricing with the yield curve
 ** Price a swap/CDS/etc against a curve
-** Model?
+** Model for a swap or bondlike
+*** Sort out the admin
+*** hard-coded data
+** Choose a good rates model with some params
+** Plot the forward default rates or volatility swap
+
+* Prepare
+** Make a guest user
+** Forward a port
+** Test from outside the network
+
+
