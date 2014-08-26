@@ -8,6 +8,7 @@
 *** Update creating in admin objects
 *** Create a page to load a bunch of defaults
 *** Create a page to load from a file?
+** Change templates to make admin nicer
 
 * Price something from a python script
 ** Load yield curve from db?
