@@ -1,1 +1,0 @@
-../../../../../share/pyshared/django/template/smartif.py

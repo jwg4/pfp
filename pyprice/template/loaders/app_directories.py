@@ -1,1 +1,0 @@
-../../../../../../share/pyshared/django/template/loaders/app_directories.py
