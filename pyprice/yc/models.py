@@ -27,10 +27,10 @@ class Pillar(models.Model):
 
     @property
     def maturity(self):
-        return get_child().maturity()
+        return self.get_child().maturity()
 
     def QLpillar(self):
-        return get_child().QLpillar()
+        return self.get_child().QLpillar()
 
 class CashRate(Pillar):
     months = models.IntegerField()
@@ -51,7 +51,7 @@ class CashRate(Pillar):
 
 
     def __unicode__(self):
-        return "%s %s CASH" % (self.yield_curve.currency, self.maturity)
+        return "%s %s CASH" % (self.yield_curve.currency, self.maturity())
     
 class SwapRate(Pillar):
     years = models.IntegerField()
@@ -71,5 +71,5 @@ class SwapRate(Pillar):
                 )
 
     def __unicode__(self):
-        return "%s %s SWAP" % (self.yield_curve.currency, self.maturity)
+        return "%s %s SWAP" % (self.yield_curve.currency, self.maturity())
 
