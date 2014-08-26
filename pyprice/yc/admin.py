@@ -12,6 +12,7 @@ class SwapInline(admin.TabularInline):
 class YCAdmin(admin.ModelAdmin):
     fields = ['name', 'currency', 'pricing_date']
     inlines = [CashInline, SwapInline]
+    list_display = ['name','currency', 'pricing_date']
     
 admin.site.register(YieldCurve, YCAdmin)
 #admin.site.register(CashRate)
