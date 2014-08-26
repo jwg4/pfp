@@ -1,6 +1,3 @@
-from django.http import HttpResponse
-from yc.models import YieldCurve
-from django.template import Context, loader
 from django.shortcuts import render_to_response
 
 def index(request):
