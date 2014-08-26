@@ -1,11 +1,15 @@
-* Run a python hello world in nginx
-** configure nginx
-*** Redirect urls for static files to /home/pi/htdocs
-*** Can we see a sample django app
-*** Can we see our django stuff
-** Create a PoC django app
+* Create a PoC django app
+** Create some pages to use the yc objects
 *** add the url pattern to urls.py
-*** Price a vanilla with a couple of methods? 
-**** Can we add a QuantLib object to a django model?
-*** Add static files if needed.
+** Bootstrap a yield curve
+*** Can we add a QuantLib object to a django model?
+*** Plot the yield curve graph 
+** Create yc objects
+*** Update creating in admin objects
+*** Create a page to load a bunch of defaults
+*** Create a page to load from a file?
+
 * Price something from a python script
+** Load yield curve from db?
+** Price a swap/CDS/etc against a curve
+** Model?
