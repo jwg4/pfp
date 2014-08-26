@@ -3,4 +3,9 @@
 *** Redirect urls for static files to /home/pi/htdocs
 *** Can we see a sample django app
 *** Can we see our django stuff
+** Create a PoC django app
+*** add the url pattern to urls.py
+*** Price a vanilla with a couple of methods? 
+**** Can we add a QuantLib object to a django model?
+*** Add static files if needed.
 * Price something from a python script
