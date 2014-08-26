@@ -54,3 +54,7 @@ docs/_build/
 
 *~
 db
+*.aux
+*.pdf
+*.synctex.gz
+*.out
