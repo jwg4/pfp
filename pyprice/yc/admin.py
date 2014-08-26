@@ -15,6 +15,6 @@ class YCAdmin(admin.ModelAdmin):
     list_display = ['name','currency', 'pricing_date']
     list_filter = ['currency', 'pricing_date']
     search_fields = ['name']
-    #date_hierarchy = ['pricing_date']
+    date_hierarchy = 'pricing_date'
 
 admin.site.register(YieldCurve, YCAdmin)
