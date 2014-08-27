@@ -3,10 +3,49 @@
 <title>
 {{curve.name}}
 </title>
+</head>
 
 <body>
 <h1>{{curve.name}}</h1>
 
+<div id="graph">
+<script src="http://d3js.org/d3.v3.js"></script>
+<script>
+d3.csv("/curvedata/{{curve.id}}", load_data)
+  
+function load_data(rows)
+{
+var width = 960,
+    height = 500;
+var border = 20;
+
+var xmax = d3.max(rows, function(d) { return d.time })
+var xmin = d3.min(rows, function(d) { return d.time })
+var ymax = d3.max(rows, function(d) { return d.rate })
+var ymin = d3.min(rows, function(d) { return d.rate })
+
+var xscale = (width - 2 * border) / (xmax - xmin) 
+var yscale = (height - 2 * border) / (ymax - ymin) 
+
+var svg = d3.select("#graph").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+    
+var node = svg.selectAll(".node")
+  .data(rows)
+  .enter()
+  .append("g")
+  .attr("transform", function(d) { return "translate(" +  (d.time - xmin) * xscale + border + "," + ((ymax - d.rate) * yscale + border) + ")"; });
+
+node.append("circle")
+  .attr("r", function(d) { return 4; })
+  .style("fill", "lightblue");
+}
+
+</script>
+</div>
+
+<div id="table">
 <table>
 {% for pillar in pillars %}
   <tr>
@@ -14,6 +53,15 @@
     <td>{{ pillar.rate }}</td>
   </tr>
 {% endfor %}
+{% for forward in forwards %}
+  <tr>
+    <td>{{ forward.0 }}</td>
+    <td>{{ forward.1 }}</td>
+  </tr>
+{% endfor %}
 </table>
+</div>
+
+<p>{{ debug_string }}</p>
 
 </body>

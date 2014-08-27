@@ -40,9 +40,9 @@ class CashRate(Pillar):
 
     def QLpillar(self):
         return DepositRateHelper(
-            QuoteHandle(SimpleQuote(rate/100)),
+            QuoteHandle(SimpleQuote(self.rate/100)),
             Period(self.months, Months),
-            yield_curve.settlement_days,
+            self.yield_curve.settlement_days,
             TARGET(),
             ModifiedFollowing,
             False,
