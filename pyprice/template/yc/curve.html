@@ -38,8 +38,8 @@ var node = svg.selectAll(".node")
   .attr("transform", function(d) { return "translate(" +  (d.time - xmin) * xscale + border + "," + ((ymax - d.rate) * yscale + border) + ")"; });
 
 node.append("circle")
-  .attr("r", function(d) { return 4; })
-  .style("fill", "lightblue");
+  .attr("r", function(d) { return 4 + 8 * d.type; })
+  .style("fill", function(d) { return d.type == 1 ? "red" : "lightblue"});
 }
 
 </script>
