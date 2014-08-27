@@ -98,7 +98,7 @@ class FuturesRate(Pillar):
     tenor = models.IntegerField(default = 3)
 
     def maturity(self):
-        return "%s" % (self.expiry)
+        return "%s" % (self.expiry.strptime("%Y-%m-%d"))
 
     def QLpillar(self):
         return FuturesRateHelper(QuoteHandle(SimpleQuote(self.rate)),
