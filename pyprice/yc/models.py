@@ -73,3 +73,40 @@ class SwapRate(Pillar):
     def __unicode__(self):
         return "%s %s SWAP" % (self.yield_curve.currency, self.maturity())
 
+
+class FRA(Pillar):
+    maturity = models.IntegerField()
+    tenor = models.IntegerField()
+
+    def maturity(self):
+        return "%dM in %dM" % (self.tenor, self.maturity)
+
+    def QLpillar(self):
+        return FraRateHelper(QuoteHandle(SimpleQuote(self.rate)),
+                             self.maturity, self.tenor,
+                             self.yield_curve.settlement_days,
+                             TARGET(),
+                             ModifiedFollowing,
+                             False,
+                             Actual360())
+
+    def __unicode__(self):
+        return "%s %s FRA" % (self.yield_curve.currency, self.maturity())
+
+class FuturesRate(Pillar):
+    expiry = models.DateField()
+    tenor = models.IntegerField(default = 3)
+
+    def maturity(self):
+        return "%s" % (self.expiry)
+
+    def QLpillar(self):
+        return FuturesRateHelper(QuoteHandle(SimpleQuote(self.rate)),
+                                 self.expiry, self.tenor,
+                                 TARGET(), ModifiedFollowing,
+                                 True, Actual360(),
+                                 QuoteHandle(SimpleQuote(0.0)))
+
+    def __unicode__(self):
+        return "%s %s Futures" % (self.yield_curve.currency, self.maturity())
+
