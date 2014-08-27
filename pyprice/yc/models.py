@@ -75,7 +75,7 @@ class SwapRate(Pillar):
 
 
 class FRA(Pillar):
-    maturity = models.IntegerField()
+    expiry = models.IntegerField()
     tenor = models.IntegerField()
 
     def maturity(self):
