@@ -26,8 +26,13 @@ var xmin = d3.min(rows, function(d) { return d.time })
 var ymax = d3.max(rows, function(d) { return d.rate })
 var ymin = d3.min(rows, function(d) { return d.rate })
 
-var xscale = (width - 2 * border) / (xmax - xmin) 
-var yscale = (height - 2 * border) / (ymax - ymin) 
+var x = d3.scale.linear()
+.domain([xmin, xmax])
+.range([border, width - border])
+
+var y = d3.scale.linear()
+.domain([0, ymax - ymin])
+.range([border, height - border])
 
 var svg = d3.select("#graph").append("svg")
     .attr("width", width)
@@ -37,7 +42,7 @@ var node = svg.selectAll(".node")
   .data(rows)
   .enter()
   .append("g")
-  .attr("transform", function(d) { return "translate(" +  (d.time - xmin) * xscale + border + "," + ((ymax - d.rate) * yscale + border) + ")"; });
+  .attr("transform", function(d) { return "translate(" +  (x(d.time) + border) + "," + (y(ymax - d.rate) + border) + ")"; });
 
 node.append("circle")
   .attr("r", function(d) { return 4 + 8 * d.type; })
