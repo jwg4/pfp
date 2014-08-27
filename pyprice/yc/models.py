@@ -14,6 +14,10 @@ class YieldCurve(models.Model):
     def __unicode__(self):
         return "%s %s" % (self.name, self.currency)
 
+    @property
+    def date(self):
+        return self.pricing_date.strftime("%d %b, %Y")
+
 class Pillar(models.Model):
     yield_curve = models.ForeignKey(YieldCurve)
     rate = models.FloatField()
@@ -29,12 +33,19 @@ class Pillar(models.Model):
     def maturity(self):
         return self.get_child().maturity()
 
+    @property
+    def type(self):
+        return self.get_child().type()
+
     def QLpillar(self):
         return self.get_child().QLpillar()
 
 class CashRate(Pillar):
     months = models.IntegerField()
     
+    def type(self):
+        return "CASH"
+
     def maturity(self):
         return "%dM" % self.months
 
@@ -56,6 +67,9 @@ class CashRate(Pillar):
 class SwapRate(Pillar):
     years = models.IntegerField()
     
+    def type(self):
+        return "SWAP"
+
     def maturity(self):
         return "%dY" % self.years
 
@@ -78,6 +92,9 @@ class FRA(Pillar):
     expiry = models.IntegerField()
     tenor = models.IntegerField()
 
+    def type(self):
+        return "FRA"
+
     def maturity(self):
         return "%dM in %dM" % (self.tenor, self.maturity)
 
@@ -96,6 +113,9 @@ class FRA(Pillar):
 class FuturesRate(Pillar):
     expiry = models.DateField()
     tenor = models.IntegerField(default = 3)
+
+    def type(self):
+        return "Futures"
 
     def maturity(self):
         return "%s" % (self.expiry.strptime("%Y-%m-%d"))

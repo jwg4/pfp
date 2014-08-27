@@ -7,13 +7,18 @@
 <body>
 
 {% if curves %}
-<ul>
+<table>
   {% for curve in curves %}
-  <li><a href="/curve/{{curve.id}}/">{{ curve.name }}</a></li>
+  <tr class="{% cycle 'odd' 'even' %}">
+  <td>{{ curve.currency }}</td>
+  <td>{{ curve.date }}</td>
+  <td><a href="/curve/{{curve.id}}/">{{ curve.name }}</a></td>
+  <td><a href="/curvedata/{{curve.id}}/">CSV output</a></td>
+  </tr>
   {% endfor %}
-  </ul>
+  </table>
 {% else %}
-<p>No polls are available.</p>
+<p>No yield curves are available.</p>
 {% endif %}
 
 </body></html>

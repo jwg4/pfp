@@ -55,7 +55,8 @@ node.append("circle")
 <div id="table">
 <table>
 {% for pillar in pillars %}
-  <tr>
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{ pillar.type }}</td>
     <td>{{ pillar.maturity }}</td>
     <td>{{ pillar.rate }}</td>
   </tr>
