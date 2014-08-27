@@ -32,12 +32,12 @@ def curve_data(request, curve_id):
                                          )
 
     max_time = termstructure.maxTime()
-    zeros = [ (max_time * x / 100, termstructure.zeroRate(max_time * x / 100, Compounded).rate()) for x in range(0, 100) ]
+    zeros = [ (max_time * x / 250.0, termstructure.zeroRate(max_time * x / 250.0, Compounded).rate()) for x in range(0, 250) ]
     s = "time,rate,type\n"
     for zero in zeros:
         s = s + "%f, %f,0\n" % zero
     for forward in termstructure.nodes():
-        zero = termstructure.zeroRate((forward[0] - today) / 360.0, Compounded).rate()
-        s = s + "%f, %f,1\n" % ((forward[0] - today) / 360.0, zero)
+        zero = termstructure.zeroRate((forward[0] - today) / 365.0, Compounded).rate()
+        s = s + "%f, %f,1\n" % ((forward[0] - today) / 365.0, zero)
 
     return HttpResponse(s, content_type = "text/csv")
