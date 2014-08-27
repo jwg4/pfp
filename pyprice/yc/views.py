@@ -37,8 +37,7 @@ def curve_data(request, curve_id):
     for zero in zeros:
         s = s + "%f, %f,0\n" % zero
     for forward in termstructure.nodes():
-        #s = s + "%f, %f,1\n" % ((forward[0] - today) / 360, forward[1])
-        zero = termstructure.zeroRate((forward[0] - today) / 360, Compounded).rate()
-        s = s + "%f, %f,1\n" % ((forward[0] - today) / 360, zero)
+        zero = termstructure.zeroRate((forward[0] - today) / 360.0, Compounded).rate()
+        s = s + "%f, %f,1\n" % ((forward[0] - today) / 360.0, zero)
 
     return HttpResponse(s, content_type = "text/csv")
