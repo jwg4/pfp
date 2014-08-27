@@ -14,6 +14,9 @@ def index(request):
     #        })
     #return HttpResponse(t.render(c))
 
+def main(request):
+    return render_to_response('yc/main.html', )
+
 def curve(request, curve_id):
     curve = get_object_or_404(YieldCurve, pk=curve_id)
     pillars = curve.pillar_set.all()
