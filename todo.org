@@ -17,4 +17,7 @@
 ** Forward a port
 ** Test from outside the network
 
+* Fixups
+** Cash rates only in months
+
 
